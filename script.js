@@ -1,5 +1,5 @@
 $(document ).ready(function() {
-    const limit = 40;
+    const limit = 5;
     let start = 0;
     const fetchData = (index) => {
         $.get( "https://raw.githubusercontent.com/blackwolf25/quotes-data/master/data.json", function( result ) {

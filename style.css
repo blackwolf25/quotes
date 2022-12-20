@@ -72,3 +72,41 @@ body {
     font-weight: 500;
     font-size: 30px;
 }
+
+@media only screen and (max-width: 600px) {
+    .blockquote {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .blockquote {
+        padding: 1.6875rem 0.875rem 0.875rem 2.6875rem;
+        margin: 40px auto;
+        width: 85%;
+    }
+    .blockquote:before {
+        font-size: 3.5rem;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .blockquote {
+        padding: 1.6875rem 0.875rem 0.875rem 2.6875rem;
+        margin: 40px auto;
+        max-width: 90%;
+    }
+    .blockquote:before {
+        font-size: 3.5rem;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .blockquote {
+        padding: 1.6875rem 0.875rem 0.875rem 2.6875rem;
+        margin: 40px auto;
+        max-width: 90%;
+    }
+    .blockquote:before {
+        font-size: 3.5rem;
+    }
+}

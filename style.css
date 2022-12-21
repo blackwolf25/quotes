@@ -33,7 +33,7 @@ body {
 .blockquote:before {
     font-size: 6.875rem;
     color: rgba(0, 123, 255, 0.54);
-    content: "“";
+    content: '“';
     font-family: "Noto Serif", "Georgia", "Times New Roman", "Times", serif;
     font-size: 5.5rem;
     height: 3.75rem;

@@ -5,16 +5,22 @@ $(document ).ready(function() {
     const fetchData = (index) => {
         $.get( "https://raw.githubusercontent.com/blackwolf25/quotes-data/master/data.json", function( result ) {
             const dataResult = JSON.parse(result);
-            for(i = index; i < start + limit; i++) {
-                if(dataResult.length == start) {
+            let limitLoop = limit;
+            if(dataResult.length - start < limit) {
+                limitLoop = dataResult.length - start;
+            }
+            for(i = index; i < start + limitLoop; i++) {
+                if(dataResult.length == start && dataResult.length >= i) {
                     $('.end').show();
+                    start = dataResult.length;
                     break;
                 }
                 prepareHtml(dataResult[i]);
                 index++;
+
             }
-            arrayStart.push(start);
             start = index;
+            //arrayStart.push(start);
         });
     }
 
@@ -34,9 +40,9 @@ $(document ).ready(function() {
     $(window).scroll(function() {
         if ($(window).scrollTop() >= $(document).height() - $(window).height() - 10) {
             console.log(start);
-            if(!arrayStart.includes(start)) {
+            //if(!arrayStart.includes(start)) {
                 fetchData(start);
-            }
+            //}
         }
     });
 });

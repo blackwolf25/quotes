@@ -1,6 +1,7 @@
 $(document ).ready(function() {
     const limit = 5;
     let start = 0;
+    let arrayStart = [];
     const fetchData = (index) => {
         $.get( "https://raw.githubusercontent.com/blackwolf25/quotes-data/master/data.json", function( result ) {
             const dataResult = JSON.parse(result);
@@ -12,6 +13,7 @@ $(document ).ready(function() {
                 prepareHtml(dataResult[i]);
                 index++;
             }
+            arrayStart.push(start);
             start = index;
         });
     }
@@ -32,7 +34,9 @@ $(document ).ready(function() {
     $(window).scroll(function() {
         if ($(window).scrollTop() >= $(document).height() - $(window).height() - 10) {
             console.log(start);
-            fetchData(start);
+            if(!arrayStart.includes(start)) {
+                fetchData(start);
+            }
         }
     });
 });
